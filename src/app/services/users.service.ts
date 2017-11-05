@@ -15,4 +15,12 @@ export class UsersService {
     this.activeUsers.push(this.inactiveUsers[id]);
     this.inactiveUsers.splice(id, 1);
   }
+	
+  getActiveUsers() {
+	  return this.activeUsers;
+  }
+
+  getInactiveUsers() {
+	  return this.inactiveUsers;
+  }
 }
