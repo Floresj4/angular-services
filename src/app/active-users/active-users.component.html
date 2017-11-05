@@ -3,8 +3,12 @@
 	*ngIf="users.length != 0; else noUsers">
   <li
     class="list-group-item"
-    *ngFor="let user of users; let i = index"><span class='glyphicon glyphicon-user'></span>
-    {{ user }} | <a href="#" (click)="onSetToInactive(i)">Set to Inactive</a>
+    *ngFor="let user of users; let i = index">
+    	<span class='glyphicon glyphicon-user'></span>
+    		{{ user }} 
+    	<a href="#" (click)="onSetToInactive(i)" class='pull-right'>
+    		<span class='label label-danger'>Set to Inactive</span>
+    	</a>
   </li>
 </ul>
 <ng-template #noUsers>
