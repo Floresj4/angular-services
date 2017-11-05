@@ -107,7 +107,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  \r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-xs-12 col-md-6 col-md-offset-3\">\r\n\t\t\t<app-active-users\r\n\t\t\t\t[users]=\"activeUsers\"\r\n\t\t\t\t(userSetToInactive)=\"onSetToInactive($event)\">\r\n\t\t\t</app-active-users>\r\n\r\n\t\t\t<app-inactive-users\r\n\t\t\t\t[users]=\"inactiveUsers\"\r\n\t\t\t\t(userSetToActive)=\"onSetToActive($event)\">\r\n\t\t\t</app-inactive-users>\r\n\t\t\t\r\n\t\t\t<div class='list-group'>\r\n\t\t\t\t<a class='list-group-item' href='https://floresj4.github.io/'>\r\n\t\t\t\t\t<span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io\r\n\t\t\t\t</a>\r\n\t\t\t\t<a class='list-group-item' href='https://github.com/Floresj4/angular-services'>\r\n\t\t\t\t\t<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services\r\n\t\t\t\t</a>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  \r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-xs-12 col-md-6 col-md-offset-3\">\r\n\t\t\t<app-active-users\r\n\t\t\t\t[users]=\"activeUsers\"\r\n\t\t\t\t(userSetToInactive)=\"onSetToInactive($event)\">\r\n\t\t\t</app-active-users>\r\n\r\n\t\t\t<app-inactive-users\r\n\t\t\t\t[users]=\"inactiveUsers\"\r\n\t\t\t\t(userSetToActive)=\"onSetToActive($event)\">\r\n\t\t\t</app-inactive-users>\r\n\r\n\t\t\t<h3>Statistics</h3>\r\n\t\t\t<div class='list-group'>\r\n\t\t\t\t<p class='list-group-item'>Number of account transitions: {{ getTransitionCount() }}</p>\r\n\t\t\t</div>\r\n\t\t\t\r\n\t\t\t<div class='list-group'>\r\n\t\t\t\t<a class='list-group-item' href='https://floresj4.github.io/'>\r\n\t\t\t\t\t<span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io\r\n\t\t\t\t</a>\r\n\t\t\t\t<a class='list-group-item' href='https://github.com/Floresj4/angular-services'>\r\n\t\t\t\t\t<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services\r\n\t\t\t\t</a>\r\n\t\t\t</div>\r\n\r\n\t\t</div>\r\n\t</div>\r\n\t\r\n</div>\r\n"
 
 /***/ }),
 
@@ -118,6 +118,7 @@ module.exports = "<div class=\"container\">\r\n  \r\n\t<div class=\"row\">\r\n\t
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_counter_service__ = __webpack_require__("../../../../../src/app/services/counter.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -129,9 +130,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
-    function AppComponent(userservice) {
+    function AppComponent(userservice, counterService) {
         this.userservice = userservice;
+        this.counterService = counterService;
         this.activeUsers = [];
         this.inactiveUsers = [];
     }
@@ -139,14 +142,17 @@ var AppComponent = (function () {
         this.activeUsers = this.userservice.getActiveUsers();
         this.inactiveUsers = this.userservice.getInactiveUsers();
     };
+    AppComponent.prototype.getTransitionCount = function () {
+        return this.counterService.getTransitionCount();
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/app.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]]
+            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_counter_service__["a" /* CounterService */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -167,12 +173,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__active_users_active_users_component__ = __webpack_require__("../../../../../src/app/active-users/active-users.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__inactive_users_inactive_users_component__ = __webpack_require__("../../../../../src/app/inactive-users/inactive-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_counter_service__ = __webpack_require__("../../../../../src/app/services/counter.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -195,7 +205,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
             ],
-            providers: [],
+            providers: [__WEBPACK_IMPORTED_MODULE_7__services_users_service__["a" /* UsersService */], __WEBPACK_IMPORTED_MODULE_8__services_counter_service__["a" /* CounterService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -275,22 +285,61 @@ var InactiveUsersComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/counter.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CounterService; });
+var CounterService = (function () {
+    function CounterService() {
+        this.transitionCount = 0;
+    }
+    CounterService.prototype.updateTransitionCount = function () {
+        this.transitionCount++;
+        console.log('updated transition count: ' + this.transitionCount);
+    };
+    CounterService.prototype.getTransitionCount = function () {
+        return this.transitionCount;
+    };
+    return CounterService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/users.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__counter_service__ = __webpack_require__("../../../../../src/app/services/counter.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 var UsersService = (function () {
-    function UsersService() {
+    function UsersService(counterService) {
+        this.counterService = counterService;
         this.activeUsers = ['Max', 'Felicia'];
         this.inactiveUsers = ['Erica', 'Carl'];
     }
     UsersService.prototype.setToInactive = function (id) {
         this.inactiveUsers.push(this.activeUsers[id]);
+        this.counterService.updateTransitionCount();
         this.activeUsers.splice(id, 1);
     };
     UsersService.prototype.setToActive = function (id) {
         this.activeUsers.push(this.inactiveUsers[id]);
+        this.counterService.updateTransitionCount();
         this.inactiveUsers.splice(id, 1);
     };
     UsersService.prototype.getActiveUsers = function () {
@@ -299,6 +348,10 @@ var UsersService = (function () {
     UsersService.prototype.getInactiveUsers = function () {
         return this.inactiveUsers;
     };
+    UsersService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__counter_service__["a" /* CounterService */]])
+    ], UsersService);
     return UsersService;
 }());
 
