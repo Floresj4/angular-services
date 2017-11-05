@@ -10,14 +10,14 @@ export class UsersService {
 
   setToInactive(id: number) {
     this.inactiveUsers.push(this.activeUsers[id]);
+    this.counterService.updateTransitionCount();
     this.activeUsers.splice(id, 1);
-    this.counterService.updateInactiveUserCount(id);
   }
 
   setToActive(id: number) {
     this.activeUsers.push(this.inactiveUsers[id]);
-    this.inactiveUsers.splice(id, 1);
-    this.counterService.updateActiveUserCount(id);
+    this.counterService.updateTransitionCount();
+    this.inactiveUsers.splice(id, 1); 
   }
 	
   getActiveUsers() {

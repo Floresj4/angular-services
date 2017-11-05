@@ -11,6 +11,11 @@
 				[users]="inactiveUsers"
 				(userSetToActive)="onSetToActive($event)">
 			</app-inactive-users>
+
+			<h3>Statistics</h3>
+			<div class='list-group'>
+				<p class='list-group-item'>Number of account transitions: {{ getTransitionCount() }}</p>
+			</div>
 			
 			<div class='list-group'>
 				<a class='list-group-item' href='https://floresj4.github.io/'>
@@ -20,6 +25,7 @@
 					<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services
 				</a>
 			</div>
+
 		</div>
 	</div>
 	
