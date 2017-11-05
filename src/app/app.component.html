@@ -1,15 +1,26 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <app-active-users
-        [users]="activeUsers"
-        (userSetToInactive)="onSetToInactive($event)">
-      </app-active-users>
+  
+	<div class="row">
+		<div class="col-xs-12 col-md-6 col-md-offset-3">
+			<app-active-users
+				[users]="activeUsers"
+				(userSetToInactive)="onSetToInactive($event)">
+			</app-active-users>
 
-      <app-inactive-users
-        [users]="inactiveUsers"
-        (userSetToActive)="onSetToActive($event)">
-      </app-inactive-users>
-    </div>
-  </div>
+			<app-inactive-users
+				[users]="inactiveUsers"
+				(userSetToActive)="onSetToActive($event)">
+			</app-inactive-users>
+			
+			<div class='list-group'>
+				<a class='list-group-item' href='https://floresj4.github.io/'>
+					<span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io
+				</a>
+				<a class='list-group-item' href='https://github.com/Floresj4/angular-services'>
+					<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services
+				</a>
+			</div>
+		</div>
+	</div>
+	
 </div>
