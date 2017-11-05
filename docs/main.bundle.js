@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/active-users/active-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Active Users</h3>\n<ul class=\"list-group\">\n  <li\n    class=\"list-group-item\"\n    *ngFor=\"let user of users; let i = index\">\n    {{ user }} | <a href=\"#\" (click)=\"onSetToInactive(i)\">Set to Inactive</a>\n  </li>\n</ul>\n"
+module.exports = "<h3>Active Users</h3>\n<ul class=\"list-group\"\n\t*ngIf=\"users.length != 0; else noUsers\">\n  <li\n    class=\"list-group-item\"\n    *ngFor=\"let user of users; let i = index\"><span class='glyphicon glyphicon-user'></span>\n    {{ user }} | <a href=\"#\" (click)=\"onSetToInactive(i)\">Set to Inactive</a>\n  </li>\n</ul>\n<ng-template #noUsers>\n\t<div class='panel panel-danger'>\n\t\t<div class='panel-heading'>No users</div>\n\t\t<div class='panel-body'>\n\t\t\t<p>There a no active users.</p>\n\t\t</div>\n\t</div>\n</ng-template>\n"
 
 /***/ }),
 
@@ -107,7 +107,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-12 col-md-8 col-md-offset-2\">\n      <app-active-users\n        [users]=\"activeUsers\"\n        (userSetToInactive)=\"onSetToInactive($event)\"></app-active-users>\n      <app-inactive-users\n        [users]=\"inactiveUsers\"\n        (userSetToActive)=\"onSetToActive($event)\"></app-inactive-users>\n    </div>\n    <!--\n      Optimize this app by adding a UsersService which manages the active and inactive users.\n\n      Also add a CounterService which counts the number of active->inactive and inactive->active actions.\n    -->\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  \n\t<div class=\"row\">\n\t\t<div class=\"col-xs-12 col-md-6 col-md-offset-3\">\n\t\t\t<app-active-users\n\t\t\t\t[users]=\"activeUsers\"\n\t\t\t\t(userSetToInactive)=\"onSetToInactive($event)\">\n\t\t\t</app-active-users>\n\n\t\t\t<app-inactive-users\n\t\t\t\t[users]=\"inactiveUsers\"\n\t\t\t\t(userSetToActive)=\"onSetToActive($event)\">\n\t\t\t</app-inactive-users>\n\t\t\t\n\t\t\t<div class='list-group'>\n\t\t\t\t<a class='list-group-item' href='https://floresj4.github.io/'>\n\t\t\t\t\t<span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io\n\t\t\t\t</a>\n\t\t\t\t<a class='list-group-item' href='https://github.com/Floresj4/angular-services'>\n\t\t\t\t\t<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\n</div>\n"
 
 /***/ }),
 
@@ -227,7 +227,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/inactive-users/inactive-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Inactive Users</h3>\n<ul class=\"list-group\">\n  <li\n    class=\"list-group-item\"\n    *ngFor=\"let user of users; let i = index\">\n    {{ user }} | <a href=\"#\" (click)=\"onSetToActive(i)\">Set to Active</a>\n  </li>\n</ul>\n"
+module.exports = "<h3>Inactive Users</h3>\n<ul class=\"list-group\"\n\t*ngIf=\"users.length != 0; else noUsers\">\n  <li\n    class=\"list-group-item\"\n    *ngFor=\"let user of users; let i = index\"><span class='glyphicon glyphicon-user'></span>\n    {{ user }} | <a href=\"#\" (click)=\"onSetToActive(i)\">Set to Active</a>\n  </li>\n</ul>\n<ng-template #noUsers>\n\t<div class='panel panel-danger'>\n\t\t<div class='panel-heading'>No users</div>\n\t\t<div class='panel-body'>\n\t\t\t<p>There a no inactive users.</p>\n\t\t</div>\n\t</div>\n</ng-template>\n"
 
 /***/ }),
 
@@ -282,8 +282,8 @@ var InactiveUsersComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
 var UsersService = (function () {
     function UsersService() {
-        this.activeUsers = ['Max', 'Anna'];
-        this.inactiveUsers = ['Chris', 'Manu'];
+        this.activeUsers = ['Max', 'Felicia'];
+        this.inactiveUsers = ['Erica', 'Carl'];
     }
     UsersService.prototype.setToInactive = function (id) {
         this.inactiveUsers.push(this.activeUsers[id]);
