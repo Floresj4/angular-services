@@ -6,7 +6,9 @@
     *ngFor="let user of users; let i = index">
     	<span class='glyphicon glyphicon-user'></span>
     		{{ user }} 
-    	<a href="#" (click)="onSetToInactive(i)" class='pull-right'>
+    	<a href="#"
+    		(click)="onSetToInactive(i)"
+    		class='activity-toggle pull-right'>
     		<span class='label label-danger'>Set to Inactive</span>
     	</a>
   </li>
