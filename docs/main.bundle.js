@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/active-users/active-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Active Users</h3>\n<ul class=\"list-group\"\n\t*ngIf=\"users.length != 0; else noUsers\">\n  <li\n    class=\"list-group-item\"\n    *ngFor=\"let user of users; let i = index\"><span class='glyphicon glyphicon-user'></span>\n    {{ user }} | <a href=\"#\" (click)=\"onSetToInactive(i)\">Set to Inactive</a>\n  </li>\n</ul>\n<ng-template #noUsers>\n\t<div class='panel panel-danger'>\n\t\t<div class='panel-heading'>No users</div>\n\t\t<div class='panel-body'>\n\t\t\t<p>There a no active users.</p>\n\t\t</div>\n\t</div>\n</ng-template>\n"
+module.exports = "<h3>Active Users</h3>\r\n<ul class=\"list-group\"\r\n\t*ngIf=\"users.length != 0; else noUsers\">\r\n  <li\r\n    class=\"list-group-item\"\r\n    *ngFor=\"let user of users; let i = index\">\r\n    \t<span class='glyphicon glyphicon-user'></span>\r\n    \t\t{{ user }} \r\n    \t<a href=\"#\"\r\n    \t\t(click)=\"onSetToInactive(i)\"\r\n    \t\tclass='activity-toggle pull-right'>\r\n    \t\t<span class='label label-danger'>Set to Inactive</span>\r\n    \t</a>\r\n  </li>\r\n</ul>\r\n<ng-template #noUsers>\r\n\t<div class='panel panel-danger'>\r\n\t\t<div class='panel-heading'>No users</div>\r\n\t\t<div class='panel-body'>\r\n\t\t\t<p>There a no active users.</p>\r\n\t\t</div>\r\n\t</div>\r\n</ng-template>\r\n"
 
 /***/ }),
 
@@ -107,7 +107,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  \n\t<div class=\"row\">\n\t\t<div class=\"col-xs-12 col-md-6 col-md-offset-3\">\n\t\t\t<app-active-users\n\t\t\t\t[users]=\"activeUsers\"\n\t\t\t\t(userSetToInactive)=\"onSetToInactive($event)\">\n\t\t\t</app-active-users>\n\n\t\t\t<app-inactive-users\n\t\t\t\t[users]=\"inactiveUsers\"\n\t\t\t\t(userSetToActive)=\"onSetToActive($event)\">\n\t\t\t</app-inactive-users>\n\t\t\t\n\t\t\t<div class='list-group'>\n\t\t\t\t<a class='list-group-item' href='https://floresj4.github.io/'>\n\t\t\t\t\t<span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io\n\t\t\t\t</a>\n\t\t\t\t<a class='list-group-item' href='https://github.com/Floresj4/angular-services'>\n\t\t\t\t\t<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  \r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-xs-12 col-md-6 col-md-offset-3\">\r\n\t\t\t<app-active-users\r\n\t\t\t\t[users]=\"activeUsers\"\r\n\t\t\t\t(userSetToInactive)=\"onSetToInactive($event)\">\r\n\t\t\t</app-active-users>\r\n\r\n\t\t\t<app-inactive-users\r\n\t\t\t\t[users]=\"inactiveUsers\"\r\n\t\t\t\t(userSetToActive)=\"onSetToActive($event)\">\r\n\t\t\t</app-inactive-users>\r\n\t\t\t\r\n\t\t\t<div class='list-group'>\r\n\t\t\t\t<a class='list-group-item' href='https://floresj4.github.io/'>\r\n\t\t\t\t\t<span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io\r\n\t\t\t\t</a>\r\n\t\t\t\t<a class='list-group-item' href='https://github.com/Floresj4/angular-services'>\r\n\t\t\t\t\t<span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-services\r\n\t\t\t\t</a>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t\r\n</div>\r\n"
 
 /***/ }),
 
@@ -227,7 +227,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/inactive-users/inactive-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Inactive Users</h3>\n<ul class=\"list-group\"\n\t*ngIf=\"users.length != 0; else noUsers\">\n  <li\n    class=\"list-group-item\"\n    *ngFor=\"let user of users; let i = index\"><span class='glyphicon glyphicon-user'></span>\n    {{ user }} | <a href=\"#\" (click)=\"onSetToActive(i)\">Set to Active</a>\n  </li>\n</ul>\n<ng-template #noUsers>\n\t<div class='panel panel-danger'>\n\t\t<div class='panel-heading'>No users</div>\n\t\t<div class='panel-body'>\n\t\t\t<p>There a no inactive users.</p>\n\t\t</div>\n\t</div>\n</ng-template>\n"
+module.exports = "<h3>Inactive Users</h3>\r\n<ul class=\"list-group\"\r\n\t*ngIf=\"users.length != 0; else noUsers\">\r\n  <li\r\n    class=\"list-group-item\"\r\n    *ngFor=\"let user of users; let i = index\">\r\n    \t<span class='glyphicon glyphicon-user'></span>\r\n    \t\t{{ user }} \r\n    \t<a href=\"#\"\r\n    \t\t(click)=\"onSetToActive(i)\"\r\n    \t\tclass='activity-toggle pull-right'>\r\n\t\t\t<span class='label label-success'>Set to Active</span>\r\n\t\t</a>\r\n  </li>\r\n</ul>\r\n<ng-template #noUsers>\r\n\t<div class='panel panel-danger'>\r\n\t\t<div class='panel-heading'>No users</div>\r\n\t\t<div class='panel-body'>\r\n\t\t\t<p>There a no inactive users.</p>\r\n\t\t</div>\r\n\t</div>\r\n</ng-template>\r\n"
 
 /***/ }),
 
