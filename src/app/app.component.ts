@@ -8,21 +8,13 @@ import { UsersService } from './services/users.service';
   providers: [UsersService]
 })
 export class AppComponent {
-  activeUsers = ['Max', 'Anna'];
-  inactiveUsers = ['Chris', 'Manu'];
+  activeUsers = [];
+  inactiveUsers = [];
 
   constructor(private userservice:UsersService){}
 
   ngOnInit() {
-  }
-
-  onSetToInactive(id: number) {
-    this.inactiveUsers.push(this.activeUsers[id]);
-    this.activeUsers.splice(id, 1);
-  }
-
-  onSetToActive(id: number) {
-    this.activeUsers.push(this.inactiveUsers[id]);
-    this.inactiveUsers.splice(id, 1);
+	  this.activeUsers = this.userservice.getActiveUsers();
+	  this.inactiveUsers = this.userservice.getInactiveUsers();
   }
 }
